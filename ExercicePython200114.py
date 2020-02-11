@@ -45,15 +45,15 @@ def menu():
         menu()
     elif choiceMenu == "6":
         cpInput = input("Veuillez entrer un code postal: ")
-        df = pd.read_sql_query('SELECT AVG(timestampdiff(year, datecreationetablissement, datefin)) AS ddvEtablissement FROM testquery4 WHERE changementEtatAdministratifEtablissement = "1" and etatAdministratifEtablissement = "F" and codepostaletablissement = "%s"' % (cpInput), engine)
-        
+        df = pd.read_sql_query("""SELECT AVG(timestampdiff(year, datecreationetablissement, datefin)) AS ddvEtablissement FROM testquery4 WHERE changementEtatAdministratifEtablissement = "1" and etatAdministratifEtablissement = "F" and codepostaletablissement = "%s""" % (cpInput), engine)
+
         # SELECT AVG(year(datefin) - year(datecreationetablissement))
-        # Fonctionne aussi, Moins précis ?
-        
+        # Fonctionne aussi, Moins précis
         print(df)
         menu() 
         
     elif choiceMenu == "7":
+        
         menu()
         
     elif choiceMenu == "8":
